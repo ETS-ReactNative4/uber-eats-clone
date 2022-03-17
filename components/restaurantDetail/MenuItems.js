@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 
 });
 
-export const MenuItems = ({ restaurantName, foods }) => {
+export const MenuItems = ({ restaurantName, foods, hideCheckbox, marginLeft }) => {
 
 
     const dispatch = useDispatch();
@@ -69,13 +69,19 @@ export const MenuItems = ({ restaurantName, foods }) => {
             foods.map( (food, index) => (
                 <View key={index}>
                     <View style={styles.menuItemStyle}>
-                        <BouncyCheckbox iconStyle={{
-                            borderColor: 'orange',                            
-                        }} 
-                        fillColor='orange'
-                        onPress={(checkboxValue) => selectItem(food, checkboxValue)}
-                        isChecked={isFoodInCart(food, cartItems)}
-                        ></BouncyCheckbox>
+                        { 
+                        hideCheckbox ? (
+                            <></>
+                        ) : (
+                            <BouncyCheckbox iconStyle={{
+                                borderColor: 'orange',                            
+                            }} 
+                            fillColor='orange'
+                            onPress={(checkboxValue) => selectItem(food, checkboxValue)}
+                            isChecked={isFoodInCart(food, cartItems)}
+                            ></BouncyCheckbox>
+                        )
+                        }                        
                         <FoodInfo food={food}/>
                         <FoodImage food={food}></FoodImage>
                     </View>

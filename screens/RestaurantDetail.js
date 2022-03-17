@@ -53,7 +53,7 @@ useEffect(() => {
         <Divider width={1.8} style={{ marginVertical: 20 }}></Divider>
         {/** List items */}
         <MenuItems restaurantName={route.params.name} foods={foods}/>
-        <ViewCart navigation={navigation} restaurantName={route.params.name}></ViewCart>
+        <ViewCart navigation={navigation}></ViewCart>
   </View>
   )
 }
