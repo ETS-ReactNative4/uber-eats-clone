@@ -1,5 +1,5 @@
-# My Universal React Project
-
+# UBER EATS REACT NATIVE CLONE
+-  Based pm - Videotutorial [https://www.youtube.com/watch?v=jmvbhuJXFow&ab_channel=CleverProgrammer)](https://www.youtube.com/watch?v=jmvbhuJXFow&ab_channel=CleverProgrammer)
 <p>
   <!-- iOS -->
   <a href="https://itunes.apple.com/app/apple-store/id982107779">
@@ -19,11 +19,13 @@
 
 - Install packages with `yarn` or `npm install`.
   - If you have native iOS code run `npx pod-install`
+- Run `expo start` to start the application 
 - Run `yarn start` to start the bundler.
 - Open the project in a React runtime to try it:
   - iOS: [Client iOS](https://itunes.apple.com/app/apple-store/id982107779)
   - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
   - Web: Any web browser
+- 
 
 ## Adding Native Code
 
@@ -42,4 +44,5 @@ This project can be run from a web browser or the Expo client app. You may find 
 - Learn more about [Universal React](https://docs.expo.dev/).
 - See what API and components are [available in the React runtimes](https://docs.expo.dev/versions/latest/).
 - Find out more about developing apps and websites: [Guides](https://docs.expo.dev/guides/).
+
 # uber-eats-clone
