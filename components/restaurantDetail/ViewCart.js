@@ -3,11 +3,13 @@ import { StyleSheet } from 'react-native';
 import { Modal, Text, TouchableOpacity, View } from 'react-native'
 import { useSelector } from 'react-redux'
 import { OrderItem } from './OrderItem';
+import {db, firebase} from '../../firebase'
 
 export const ViewCart = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const {items, restaurantName } = useSelector(state => state.cart.selectedItems);
-        // '13.5€
+    
+    // '13.5€
     // '13.50'
     // Number(13.50) 13.5
     // [13.5, 20.5, 19.5]
@@ -23,6 +25,15 @@ export const ViewCart = () => {
         currency: 'EUR'
     });
 
+    const addOrderToFirebase = () => {
+                
+        db.collection('orders').add({
+            items: items,
+            restaurantName: restaurantName,
+            createdAt: new Date().getTime()
+        });
+        setModalVisible(false);
+    }
 
     const styles = StyleSheet.create({
         modalContainer: {
@@ -56,8 +67,9 @@ export const ViewCart = () => {
           fontWeight: "600",
           fontSize: 15,
           marginBottom: 10,
-        },
-      });
+        }
+
+    });
 
       const checkoutModalContent = () => {
         return (
@@ -84,7 +96,8 @@ export const ViewCart = () => {
                       position: "relative",
                     }}
                     onPress={() => {
-                      setModalVisible(false);
+                        addOrderToFirebase();
+                      //setModalVisible(false);
                     }}
                   >
                     <Text style={{ color: "white", fontSize: 20 }}>Checkout</Text>
