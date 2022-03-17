@@ -18,11 +18,6 @@ const styles = StyleSheet.create({
         fontSize: 19, 
         fontWeight: '600'
     },
-    foodImageImageStyle: {
-        width: 100,
-        height: 100,
-        borderRadius: 10
-    },
     dividerStyle: {
         marginHorizontal: 20
     }
@@ -64,7 +59,7 @@ export const MenuItems = ({ restaurantName, foods, hideCheckbox, marginLeft }) =
     }
 
   return (
-    <ScrollView showsHorizontalScrollIndicator={false} contentInsetAdjustmentBehavior="never">
+    <ScrollView showsHorizontalScrollIndicator={false} >
         {
             foods.map( (food, index) => (
                 <View key={index}>
@@ -83,7 +78,7 @@ export const MenuItems = ({ restaurantName, foods, hideCheckbox, marginLeft }) =
                         )
                         }                        
                         <FoodInfo food={food}/>
-                        <FoodImage food={food}></FoodImage>
+                        <FoodImage food={food} marginLeft={marginLeft ? marginLeft : 0}></FoodImage>
                     </View>
                     <Divider width={0.5} orientation="vertical" style={styles.dividerStyle}></Divider>    
                 </View>                
@@ -105,10 +100,10 @@ const FoodInfo = (props) => {
     )    
 }
 
-const FoodImage = (props) => {
+const FoodImage = ({marginLeft, ...props}) => {
     return (
         <View>
-            <Image source={{ uri: props.food.image }} style={styles.foodImageImageStyle}></Image>
+            <Image source={{ uri: props.food.image }}  style={{ width: 100, height: 100, borderRadius: 8, marginLeft: marginLeft }}></Image>
         </View>
     )
 }

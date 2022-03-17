@@ -42,10 +42,6 @@ export const RestaurantDetail = ({ route, navigation }) => {
     }
 ];
 
-useEffect(() => {
-      console.log('Restaurant detail', route.params.name);
-}, []);
-
   return (
     <View style={{ flex: 1 }}>
         {/** Header */}

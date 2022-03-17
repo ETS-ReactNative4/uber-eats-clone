@@ -7,7 +7,6 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 export const SearchBar = ({cityHandler}) => {
 
     const handleSearch = (data, details = null) => {
-        console.log(data.description);
         const city = data.description.split(',')[0];
         cityHandler(city)
     }
